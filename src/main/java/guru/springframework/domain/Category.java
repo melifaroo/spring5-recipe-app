@@ -1,12 +1,7 @@
 package guru.springframework.domain;
 
+import javax.persistence.*;
 import java.util.Set;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 
 @Entity
 public class Category {
@@ -17,6 +12,6 @@ public class Category {
 
     private String description;
     
-    @ManyToMany
+    @ManyToMany(mappedBy = "categories")
     private Set<Recipe> recipes;
 }
