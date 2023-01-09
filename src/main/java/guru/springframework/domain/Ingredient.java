@@ -15,6 +15,6 @@ public class Ingredient {
 
     private BigDecimal amount;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     private UnitOfMeasure unitOfMeasure;
 }
