@@ -36,7 +36,7 @@ public class Recipe {
     private Difficulty difficulty;
 
     @OneToMany(cascade = CascadeType.ALL)
-    private Set<Ingridient> ingridients;
+    private Set<Ingredient> ingredients;
     
     @ManyToMany
     @JoinTable(name = "recipe_category")
