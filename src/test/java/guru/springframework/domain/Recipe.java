@@ -1,11 +1,19 @@
 package guru.springframework.domain;
 
+import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -24,7 +32,15 @@ public class Recipe {
     private String url;
     private String directions;
 
-    //private Difficulty difficulty;
+    @Enumerated(EnumType.STRING)
+    private Difficulty difficulty;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<Ingridient> ingridients;
+    
+    @ManyToMany
+    @JoinTable(name = "recipe_category")
+    private Set<Category> categories;
     
     @Lob
     private Byte[] image;
