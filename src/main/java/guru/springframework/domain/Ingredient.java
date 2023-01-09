@@ -15,11 +15,11 @@ public class Ingredient {
 
     private BigDecimal amount;
 
-    @ManyToOne
-    private Recipe recipe;
-
     @OneToOne(fetch = FetchType.EAGER)
     private UnitOfMeasure unitOfMeasure;
+
+    @ManyToOne
+    private Recipe recipe;
 
     public Long getId() {
         return id;
