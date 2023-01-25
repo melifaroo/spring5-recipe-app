@@ -6,6 +6,8 @@ import javax.persistence.*;
 
 import lombok.*;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 @EqualsAndHashCode(exclude = {"recipes"})

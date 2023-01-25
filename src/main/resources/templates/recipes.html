@@ -7,36 +7,38 @@
 <body>
 	<h1>Recipes list</h1>
 
-    <table id="recipes" class="table table-striped">
-        <thead>
-            <tr>
-                <th hidden>ID</th>
-                <th>Description</th>
-                <th>Category</th>
-                <th>Prep Time</th>
-                <th>Cook Time</th>
-                <th>Ingridients</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="recipe : ${recipes}" >
-                <td hidden th:text="${recipe?.id}">-1</td>
-                <td th:text="${recipe?.description}">N/D</td>
-                <td>
-                    <ul>
-                        <li th:each="category : ${recipe?.categories}" th:text="${category?.description}"></li>
-                    </ul>
-                </td>
-                <td th:text="${recipe?.cookTime}">N/D</td>
-                <td th:text="${recipe?.prepTime}">N/D</td>                
-                <td>
-                    <ul>
-                        <li th:each="ingredient : ${recipe?.ingredients}" th:text="${ ingredient?.amount + ' ' +ingredient?.unitOfMeasure.description + ' ' + ingredient?.description}"></li>
-                    </ul>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="table-responsive" th:if="${not #lists.isEmpty(recipes)}">
+        <table id="recipes" class="table table-hover">
+            <thead class="thead-inverse">
+                <tr>
+                    <th hidden>ID</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                    <th>Prep Time</th>
+                    <th>Cook Time</th>
+                    <th>Ingridients</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="recipe : ${recipes}" >
+                    <td hidden th:text="${recipe?.id}">-1</td>
+                    <td th:text="${recipe?.description}">N/D</td>
+                    <td>
+                        <ul>
+                            <li th:each="category : ${recipe?.categories}" th:text="${category?.description}"></li>
+                        </ul>
+                    </td>
+                    <td th:text="${recipe?.cookTime}">N/D</td>
+                    <td th:text="${recipe?.prepTime}">N/D</td>                
+                    <td>
+                        <ul>
+                            <li th:each="ingredient : ${recipe?.ingredients}" th:text="${ ingredient?.amount + ' ' +ingredient?.unitOfMeasure.description + ' ' + ingredient?.description}"></li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
 </body>
 </html>

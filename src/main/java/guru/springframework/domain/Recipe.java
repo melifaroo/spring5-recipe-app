@@ -1,12 +1,14 @@
 package guru.springframework.domain;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.*;
 
 import lombok.*;
 
-import java.util.HashSet;
-import java.util.Set;
-
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 @Entity

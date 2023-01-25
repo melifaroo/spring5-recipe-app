@@ -6,9 +6,12 @@ import javax.persistence.*;
 
 import lombok.*;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @EqualsAndHashCode(exclude = {"recipe"})
 @Getter
 @Setter
+
 @Entity
 public class Ingredient {
         
